@@ -5,6 +5,7 @@ const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
 const resetBtn = document.getElementById("jsReset");
+const revertBtn = document.getElementById("jsRevert");
 
 canvas.width = 700;
 canvas.height = 700;
@@ -82,6 +83,10 @@ function handleResetClick() {
     ctx.clearRect(0,0,700,700);
 }
 
+function handleRevertClick() {
+    ctx.restore();
+}
+
 if(canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
@@ -107,4 +112,8 @@ if(saveBtn) {
 
 if(resetBtn) {
     resetBtn.addEventListener("click", handleResetClick);
+}
+
+if(revertBtn) {
+    revertBtn.addEventListener("click", handleRevertClick);
 }
