@@ -4,6 +4,7 @@ const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
+const resetBtn = document.getElementById("jsReset");
 
 canvas.width = 700;
 canvas.height = 700;
@@ -77,6 +78,10 @@ function handleSaveClick() {
     link.click();
 }
 
+function handleResetClick() {
+    ctx.clearRect(0,0,700,700);
+}
+
 if(canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
@@ -98,4 +103,8 @@ if(mode) {
 
 if(saveBtn) {
     saveBtn.addEventListener("click", handleSaveClick);
+}
+
+if(resetBtn) {
+    resetBtn.addEventListener("click", handleResetClick);
 }
